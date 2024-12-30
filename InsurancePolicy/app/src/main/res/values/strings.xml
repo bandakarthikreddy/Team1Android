@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Insurance Policy</string>
+    <string name="title_activity_agent">Agent</string>
+    <string name="title_activity_vehicle">Vehicle</string>
+</resources>
