@@ -24,13 +24,16 @@ class VehicleViewModel: ViewModel() {
             try {
                 val response = VehicleRetrofitInstance.vehicleAPI.getOwners(ownerID)
                 if (response.isSuccessful) {
+                    Toast.makeText(context,"Owner data fetched successfully", Toast.LENGTH_LONG).show()
                     _owners.value = response.body() // Save the fetched owner data
                     Log.d("VehicleViewModel", "Owner data fetched successfully")
                 } else {
+                    Toast.makeText(context,"Failed to fetch owner data : ${response.message()}", Toast.LENGTH_LONG).show()
                     _owners.value = null
                     Log.e("VehicleViewModel", "Failed to fetch owner data : ${response.message()}")
                 }
             } catch (e: Exception) {
+                Toast.makeText(context,"Error fetching owner data", Toast.LENGTH_LONG).show()
                 Log.e("VehicleViewModel", "Error fetching owner data", e)
             }
         }
@@ -47,9 +50,11 @@ class VehicleViewModel: ViewModel() {
                     Log.d("VehicleViewModel", "Vehicle details fetched successfully")
                 } else {
                     _vehicleData.value = null
+                    Toast.makeText(context,"Failed to vehicle data : ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("VehicleViewModel", "Failed to vehicle data : ${response.message()}")
                 }
             } catch (e : Exception) {
+                Toast.makeText(context,"Error fetching vehicle data", Toast.LENGTH_LONG).show()
                 Log.e("VehicleViewModel", "Error fetching vehicle data", e)
             }
         }
@@ -66,9 +71,11 @@ class VehicleViewModel: ViewModel() {
                     Toast.makeText(context, "Vehicle details added successfully", Toast.LENGTH_LONG).show()
                     Log.d("VehicleViewModel", "Vehicle details added successfully")
                 } else {
+                    Toast.makeText(context,"Failed to add vehicle data: ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("VehicleViewModel", "Failed to add vehicle data: ${response.message()}")
                 }
             } catch (e: Exception) {
+                Toast.makeText(context,"Error adding vehicle data", Toast.LENGTH_LONG).show()
                 Log.e("VehicleViewModel", "Error adding vehicle data", e)
             }
         }
@@ -83,9 +90,11 @@ class VehicleViewModel: ViewModel() {
                     Toast.makeText(context,"Vehicle details updated successfully", Toast.LENGTH_LONG).show()
                     Log.d("VehicleViewModel", "Vehicle details updated successfully")
                 } else {
+                    Toast.makeText(context,"Failed to update vehicle data : ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("VehicleViewModel", "Failed to update vehicle data : ${response.message()}")
                 }
             } catch (e : Exception) {
+                Toast.makeText(context,"Error updating vehicle data", Toast.LENGTH_LONG).show()
                 Log.e("VehicleViewModel", "Error updating vehicle data", e)
             }
         }
@@ -99,9 +108,11 @@ class VehicleViewModel: ViewModel() {
                     Toast.makeText(context,"Vehicle details deleted successfully", Toast.LENGTH_LONG).show()
                     Log.d("VehicleViewModel", "Vehicle details deleted successfully")
                 } else {
+                    Toast.makeText(context,"Failed to delete vehicle data : ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("VehicleViewModel", "Failed to delete vehicle data : ${response.message()}")
                 }
             } catch (e : Exception) {
+                Toast.makeText(context,"Error deleting vehicle data", Toast.LENGTH_LONG).show()
                 Log.e("VehicleViewModel", "Error deleting vehicle data", e)
             }
         }

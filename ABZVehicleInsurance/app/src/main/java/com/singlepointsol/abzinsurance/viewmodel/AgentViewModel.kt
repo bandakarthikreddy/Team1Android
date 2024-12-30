@@ -27,9 +27,11 @@ class AgentViewModel: ViewModel() {
                     Log.d("AgentViewModel", "Agent details fetched successfully")
                 } else {
                     _agentData.value = null
+                    Toast.makeText(context, "Failed to add Agent data : ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("AgentViewModel", "Failed to add Agent data : ${response.message()}")
                 }
             } catch (e : Exception) {
+                Toast.makeText(context, "Error fetching agent data", Toast.LENGTH_LONG).show()
                 Log.e("AgentViewModel", "Error fetching agent data", e)
             }
         }
@@ -43,9 +45,11 @@ class AgentViewModel: ViewModel() {
                     Toast.makeText(context,"Agent added successfully", Toast.LENGTH_LONG).show()
                     Log.d("AgentViewModel", "Agent added successfully")
                 } else {
+                    Toast.makeText(context,"Failed to add Agent : ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("AgentViewModel", "Failed to add Agent : ${response.message()}")
                 }
             } catch (e : Exception) {
+                Toast.makeText(context,"Error adding Agent", Toast.LENGTH_LONG).show()
                 Log.e("AgentViewModel", "Error adding Agent", e)
             }
         }
@@ -59,9 +63,11 @@ class AgentViewModel: ViewModel() {
                     Toast.makeText(context,"Agent updated successfully", Toast.LENGTH_LONG).show()
                     Log.d("AgentViewModel", "Agent updated successfully")
                 } else {
+                    Toast.makeText(context,"Failed to update Agent : ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("AgentViewModel", "Failed to update Agent : ${response.message()}")
                 }
             } catch (e : Exception) {
+                Toast.makeText(context,"Error updating Agent", Toast.LENGTH_LONG).show()
                 Log.e("AgentViewModel", "Error updating Agent", e)
             }
         }
@@ -75,9 +81,11 @@ class AgentViewModel: ViewModel() {
                     Toast.makeText(context,"Agent details deleted successfully", Toast.LENGTH_LONG).show()
                     Log.d("AgentViewModel", "Agent details deleted successfully")
                 } else {
+                    Toast.makeText(context,"Failed to delete Agent data : ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("AgentViewModel", "Failed to delete Agent data : ${response.message()}")
                 }
             } catch (e : Exception) {
+                Toast.makeText(context,"Error deleting Agent data", Toast.LENGTH_LONG).show()
                 Log.e("AgentViewModel", "Error deleting Agent data", e)
             }
         }

@@ -119,14 +119,15 @@ fun CustomerQueryPage(modifier: Modifier, viewModel: CustomerQueryViewModel) {
                         .fillMaxWidth()
                 )
                 Spacer(modifier = Modifier
-                    .fillMaxWidth())
+                    .height(8.dp))
             }
         }
 
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 8.dp )
+                .padding(horizontal = 8.dp ),
+            horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             LazyRow (
                 modifier = Modifier

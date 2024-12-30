@@ -25,6 +25,7 @@ class ProposalViewModel: ViewModel() {
                     Log.d("ProposalViewModel", "Proposal details fetched successfully")
                 } else {
                     _proposalData.value = null
+                    Toast.makeText(context, "Failed to fetch Proposal data: ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("ProposalViewModel", "Failed to fetch Proposal data: ${response.message()}")
                 }
             } catch (e: Exception) {
@@ -42,6 +43,7 @@ class ProposalViewModel: ViewModel() {
                     Toast.makeText(context, "Proposal details added successfully", Toast.LENGTH_LONG).show()
                     Log.d("ProposalViewModel", "Proposal details added successfully")
                 } else {
+                    Toast.makeText(context, "Failed to add proposal data: ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("ProposalViewModel", "Failed to add proposal data: ${response.message()}")
                 }
             } catch (e: Exception) {
@@ -59,6 +61,7 @@ class ProposalViewModel: ViewModel() {
                     Toast.makeText(context, "Proposal details updated successfully", Toast.LENGTH_LONG).show()
                     Log.d("ProposalViewModel", "Proposal details updated successfully")
                 } else {
+                    Toast.makeText(context, "Failed to update proposal data: ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("ProposalViewModel", "Failed to update proposal data: ${response.message()}")
                 }
             } catch (e: Exception) {
@@ -76,6 +79,7 @@ class ProposalViewModel: ViewModel() {
                     Toast.makeText(context, "Proposal details deleted successfully", Toast.LENGTH_LONG).show()
                     Log.d("ProposalViewModel", "Proposal details deleted successfully")
                 } else {
+                    Toast.makeText(context, "Failed to delete proposal data: ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("ProposalViewModel", "Failed to delete proposal data: ${response.message()}")
                 }
             } catch (e: Exception) {

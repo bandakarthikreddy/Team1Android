@@ -119,7 +119,7 @@ fun ProductPage(modifier: Modifier, viewModel: ProductViewModel) {
 
         Row(
             modifier = Modifier
-                .fillMaxWidth()
+
                 .padding(horizontal = 8.dp),
             horizontalArrangement = Arrangement.SpaceEvenly // This will evenly space the buttons
         ) {
@@ -146,7 +146,11 @@ fun ProductPage(modifier: Modifier, viewModel: ProductViewModel) {
                 if (form.productID.isNotEmpty()) {
                     viewModel.fetchProductById(form.productID, context)
                 }
-            }) {
+            },
+                modifier = Modifier
+
+                    .padding(horizontal = 8.dp)
+            ) {
                 Text("FETCH", style = buttonTextFieldStyle())
             }
 
@@ -162,7 +166,10 @@ fun ProductPage(modifier: Modifier, viewModel: ProductViewModel) {
                     )
                     viewModel.updateProduct(form.productID,updatedProduct, context)
                 }
-            }) {
+            },
+                modifier = Modifier
+                    .padding(horizontal = 8.dp)
+            ) {
                 Text("UPDATE", style = buttonTextFieldStyle())
             }
 

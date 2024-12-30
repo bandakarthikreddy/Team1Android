@@ -27,9 +27,11 @@ class ClaimViewModel: ViewModel() {
                     Log.d("ClaimViewModel", "Claim details fetched successfully")
                 } else {
                     _claimData.value = null
+                    Toast.makeText(context,"Failed to Claim data : ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("ClaimViewModel", "Failed to Claim data : ${response.message()}")
                 }
             } catch (e : Exception) {
+                Toast.makeText(context,"Error fetching Claim data", Toast.LENGTH_LONG).show()
                 Log.e("ClaimViewModel", "Error fetching Claim data", e)
             }
         }

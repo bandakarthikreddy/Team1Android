@@ -1,5 +1,6 @@
 package com.singlepointsol.abzinsurance.screens
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -149,7 +150,8 @@ fun PolicyPage(modifier: Modifier, viewModel: PolicyViewModel) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 8.dp)
+                .padding(horizontal = 8.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly
         ) {
            LazyRow(
                modifier = Modifier
@@ -223,7 +225,7 @@ fun PolicyPage(modifier: Modifier, viewModel: PolicyViewModel) {
                    },
                        modifier = Modifier
                            .fillMaxWidth()
-                           .padding(horizontal = 8.dp)) {
+                           .padding(horizontal = 6.dp)) {
                        Text("DELETE", style = buttonTextFieldStyle())
                    }
                }

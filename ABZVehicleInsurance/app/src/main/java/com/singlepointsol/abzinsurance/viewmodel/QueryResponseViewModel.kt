@@ -28,9 +28,11 @@ class QueryResponseViewModel: ViewModel() {
                 } else {
                     _queryResponseData.value = null
                     val errorBody = response.errorBody()?.string()
+                    Toast.makeText(context,"Failed to get Query Response : ${response.message()} | Error Body: $errorBody", Toast.LENGTH_LONG).show()
                     Log.e("QueryResponseViewModel", "Failed to get Query Response : ${response.message()} | Error Body: $errorBody")
                 }
             } catch (e : Exception) {
+                Toast.makeText(context,"Failed to get Query Response", Toast.LENGTH_LONG).show()
                 Log.e("QueryResponseViewModel", "Failed to get Query Response", e)
             }
         }
@@ -45,9 +47,11 @@ class QueryResponseViewModel: ViewModel() {
                     Toast.makeText(context,"Query Response added successfully", Toast.LENGTH_LONG).show()
                     Log.d("QueryResponseViewModel", "Query Response added successfully")
                 } else {
+                    Toast.makeText(context,"Failed to add Query Response : ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("QueryResponseViewModel", "Failed to add Query Response : ${response.message()}")
                 }
             } catch (e : Exception) {
+                Toast.makeText(context,"Error adding Query Response", Toast.LENGTH_LONG).show()
                 Log.e("QueryResponseViewModel", "Error adding Query Response", e)
             }
         }
@@ -61,9 +65,11 @@ class QueryResponseViewModel: ViewModel() {
                     Toast.makeText(context,"Query Response updated successfully", Toast.LENGTH_LONG).show()
                     Log.d("QueryResponseViewModel", "Query Response updated successfully")
                 } else {
+                    Toast.makeText(context,"Failed to update Query Response : ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("QueryResponseViewModel", "Failed to update Query Response : ${response.message()}")
                 }
             } catch (e : Exception) {
+                Toast.makeText(context,"Error updating Query Response", Toast.LENGTH_LONG).show()
                 Log.e("QueryResponseViewModel", "Error updating Query Response", e)
             }
         }
@@ -74,12 +80,14 @@ class QueryResponseViewModel: ViewModel() {
             try {
                 val response = QueryResponseRetrofitInstance.queryResponse.deleteQueryResponse(queryId,srNo)
                 if (response.isSuccessful) {
-                    Toast.makeText(context,"Query Responsen deleted successfully", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context,"Query Response deleted successfully", Toast.LENGTH_LONG).show()
                     Log.d("QueryResponseViewModel", "Query Response deleted successfully")
                 } else {
+                    Toast.makeText(context,"Failed to delete Query Response : ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("QueryResponseViewModel", "Failed to delete Query Response : ${response.message()}")
                 }
             } catch (e : Exception) {
+                Toast.makeText(context,"Error deleting Query Response", Toast.LENGTH_LONG).show()
                 Log.e("QueryResponseViewModel", "Error deleting Query Response", e)
             }
         }

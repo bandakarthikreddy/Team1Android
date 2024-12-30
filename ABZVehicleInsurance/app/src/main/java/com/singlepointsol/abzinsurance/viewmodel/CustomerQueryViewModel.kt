@@ -27,9 +27,11 @@ class CustomerQueryViewModel: ViewModel() {
                     Log.d("CustomerQueryViewModal", "Customer Query fetched successfully")
                 } else {
                     _customerQueryData.value = null
+                    Toast.makeText(context,"Failed to get Customer Query : ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("CustomerQueryViewModal", "Failed to get Customer Query : ${response.message()}")
                 }
             } catch (e : Exception) {
+                Toast.makeText(context,"Failed to get Customer Query", Toast.LENGTH_LONG).show()
                 Log.e("CustomerQueryViewModal", "Failed to get Customer Query", e)
             }
         }
@@ -43,9 +45,11 @@ class CustomerQueryViewModel: ViewModel() {
                     Toast.makeText(context,"Customer query added successfully", Toast.LENGTH_LONG).show()
                     Log.d("CustomerQueryViewModal", "Customer query added successfully")
                 } else {
+                    Toast.makeText(context,"Failed to add Customer query : ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("CustomerQueryViewModal", "Failed to add Customer query : ${response.message()}")
                 }
             } catch (e : Exception) {
+                Toast.makeText(context,"Error adding Customer query", Toast.LENGTH_LONG).show()
                 Log.e("CustomerQueryViewModal", "Error adding Customer query", e)
             }
         }
@@ -59,9 +63,11 @@ class CustomerQueryViewModel: ViewModel() {
                     Toast.makeText(context,"Customer query updated successfully", Toast.LENGTH_LONG).show()
                     Log.d("CustomerQueryViewModal", "Customer query updated successfully")
                 } else {
+                    Toast.makeText(context,"Failed to update Customer query : ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("CustomerQueryViewModal", "Failed to update Customer query : ${response.message()}")
                 }
             } catch (e : Exception) {
+                Toast.makeText(context,"Error updating Customer query", Toast.LENGTH_LONG).show()
                 Log.e("CustomerQueryViewModal", "Error updating Customer query", e)
             }
         }
@@ -75,9 +81,11 @@ class CustomerQueryViewModel: ViewModel() {
                     Toast.makeText(context,"Customer query deleted successfully", Toast.LENGTH_LONG).show()
                     Log.d("CustomerQueryViewModal", "Customer query deleted successfully")
                 } else {
+                    Toast.makeText(context,"Failed to delete Customer query : ${response.message()}", Toast.LENGTH_LONG).show()
                     Log.e("CustomerQueryViewModal", "Failed to delete Customer query : ${response.message()}")
                 }
             } catch (e : Exception) {
+                Toast.makeText(context,"Error deleting Customer query", Toast.LENGTH_LONG).show()
                 Log.e("CustomerQueryViewModal", "Error deleting Customer query", e)
             }
         }

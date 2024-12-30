@@ -21,15 +21,17 @@ fun MainPage(navController: NavController) {
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         listOf(
-            "Agent Page" to Routes.AgentPage.route,
-            "Claim Page" to Routes.ClaimPage.route,
+
+
             "Customer Page" to Routes.CustomerPage.route,
-            "Policy Add-On Page" to Routes.PolicyAddOnPage.route,
-            "Policy Page" to Routes.PolicyPage.route,
-            "Proposal Page" to Routes.ProposalPage.route,
             "Vehicle Page" to Routes.VehiclePage.route,
             "Product Page" to Routes.ProductPage.route,
             "Product Add-On Page" to Routes.ProductAddOnPage.route,
+            "Agent Page" to Routes.AgentPage.route,
+            "Proposal Page" to Routes.ProposalPage.route,
+            "Policy Page" to Routes.PolicyPage.route,
+            "Policy Add-On Page" to Routes.PolicyAddOnPage.route,
+            "Claim Page" to Routes.ClaimPage.route,
             "Customer Query" to Routes.CustomerQueryPage.route,
             "Query Response" to Routes.QueryResponsePage.route
 

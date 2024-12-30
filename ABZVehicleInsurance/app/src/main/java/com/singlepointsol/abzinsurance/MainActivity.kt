@@ -112,9 +112,9 @@ fun MyApp(
                     composable(Routes.ProfilePage.route) { ProfilePage() }
                     composable(Routes.ContactUsPage.route) { ContactUsPage() }
                     composable(Routes.MainPage.route) { MainPage(navController) }
+                    composable(Routes.CustomerPage.route) { CustomerPage(Modifier, customerViewModel) }
                     composable(Routes.AgentPage.route) { AgentPage(Modifier, agentViewModel) }
                     composable(Routes.ClaimPage.route) { ClaimPage(Modifier, claimViewModel) }
-                    composable(Routes.CustomerPage.route) { CustomerPage(Modifier, customerViewModel) }
                     composable(Routes.PolicyAddOnPage.route) { PolicyAddOnPage(Modifier, policyAddOnViewModel) }
                     composable(Routes.PolicyPage.route) { PolicyPage(Modifier, policyViewModel) }
                     composable(Routes.ProposalPage.route) { ProposalPage(Modifier, proposalViewModel) }

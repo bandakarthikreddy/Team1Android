@@ -1,5 +1,6 @@
 package com.singlepointsol.abzinsurance.screens
 
+import android.content.Context
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,6 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.focusModifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.singlepointsol.abzinsurance.dataclass.CustomerDataClassItem
@@ -34,6 +36,7 @@ fun CustomerPage(
 ) {
     var formState by remember { mutableStateOf(CustomerForm()) }
     val customerData by viewModel.customerData.collectAsState() // Observe ViewModel's StateFlow
+    val context = LocalContext.current
 
     // Update the formState when new customer data is fetched
     LaunchedEffect(customerData) {
@@ -120,7 +123,7 @@ fun CustomerPage(
                             customerEmail = formState.customerEmail,
                             customerAddress = formState.customerAddress
                         )
-                        viewModel.addNewCustomer(formState.customerID,newCustomer)
+                        viewModel.addNewCustomer(formState.customerID,newCustomer, context)
                     },
                     modifier = Modifier
                         .fillMaxWidth()
@@ -133,7 +136,7 @@ fun CustomerPage(
                 Button(
                     onClick = {
                         if (formState.customerID.isNotEmpty()) {
-                            viewModel.fetchCustomerDataById(formState.customerID)
+                            viewModel.fetchCustomerDataById(formState.customerID, context)
                         }
                     },
                     modifier = Modifier
@@ -154,7 +157,7 @@ fun CustomerPage(
                                 customerEmail = formState.customerEmail,
                                 customerAddress = formState.customerAddress
                             )
-                            viewModel.updateCustomerData(updatedCustomer)
+                            viewModel.updateCustomerData(updatedCustomer, context)
                         }
                     },
                     modifier = Modifier
@@ -168,7 +171,7 @@ fun CustomerPage(
                 Button(
                     onClick = {
                         if (formState.customerID.isNotEmpty()) {
-                            viewModel.deleteCustomerData(formState.customerID)
+                            viewModel.deleteCustomerData(formState.customerID, context)
                         }
                     },
                     modifier = Modifier
